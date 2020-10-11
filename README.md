@@ -4,7 +4,7 @@
 **Last Update:** 10/11/20<br>
 **Author:** level6<br>
 **URL:** https://github.com/lleevveell66/sinfo<br>
-This is sinfo, which is just the most basic example of a TCP server that will share the contents of a local file <br>
+This is sinfo, which is just the most basic example of a TCP server that will share the contents of a local file 
 with the client which connects, written in C.<br>
 
 ## Description:
