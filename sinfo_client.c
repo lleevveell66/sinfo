@@ -26,14 +26,14 @@ int main(int argc,char *argv[])
  struct sockaddr_in their_addr;
 
  // Not enough command line args, show syntax and exit
- if(argc != 2)
+ if(argc!=2)
  {
   fprintf(stderr,"SYNTAX: %s server_name_or_ip\n",argv[0]);
   exit(1);
  }
 
  // Get the host details:
- if((he=gethostbyname(argv[1])) == NULL)
+ if((he=gethostbyname(argv[1]))==NULL)
  {
   perror("sinfo client: gethostbyname()");
   exit(1);
