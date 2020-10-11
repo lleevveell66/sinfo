@@ -23,6 +23,7 @@ cd /usr/local/src
 git clone https://github.com/lleevveell66/sinfo
 cd sinfo
 make all
+make install
 ```
 
 ## Usage:
