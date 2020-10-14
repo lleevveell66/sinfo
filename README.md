@@ -1,7 +1,7 @@
 # sinfo - simple socket stream info sharing
 
-**Current Version:** 1.0<br>
-**Last Update:** 10/11/20<br>
+**Current Version:** 1.2<br>
+**Last Update:** 10/13/20<br>
 **Author:** level6<br>
 **URL:** https://github.com/lleevveell66/sinfo<br>
 This is sinfo, which is just the most basic example of a TCP server that will share the contents of a local file 
@@ -24,14 +24,23 @@ git clone https://github.com/lleevveell66/sinfo
 cd sinfo
 make all
 make install
+
+# to create a systemd service to run upon boot:
+cp sinfo.service /etc/systemd/system/
+systemctl daemon-reload
+systemctl enable sinfo.service
+systemctl start sinfo.service
 ```
 
 ## Usage:
 
 ```
-vi stats.txt              # add whatever you want to this file
-./sinfo_server            # in one shell (or, it can be backgrounded
-./sinfo_client 127.0.0.1  # in another shell
+cd /usr/local/bin/
+vi /usr/local/bin/stats.txt            # add whatever you want to this file
+/usr/local/bin/sinfo_server            # in one shell (or, it can be backgrounded
+/usr/local/bin/sinfo_client 127.0.0.1  # in another shell
 ```
 
 Of course, change 127.0.0.1 to whatever IP address you're running sinfo_server on.  This example assumes they are both on the same machine.
+
+If you will cron both your drop-off script and an sinfo_client, beware that this client is not smart enough to know that the file is empty or being written to.  Offset your cron jobs with a a-b/d range, e.g., every 5 minutes, offset by 2 is 2-59/5 .
